@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -25,5 +26,13 @@ func main() {
 	mynumRating, _ := strconv.ParseFloat(strings.TrimSpace(userRating), 64)
 
 	//Back end
-	fmt.Println("%v, %v", name, mynumRating)
+	fmt.Printf("Hello %v, \n Thanks for rating our Dosa center with %v star rating. \n\n your rating was recorded in our system at %v\n\n", name, mynumRating, time.Now().Format(time.Stamp))
+
+	if mynumRating == 5 {
+		fmt.Println("Bonus for team for 5 star services")
+	} else if mynumRating == 4 || mynumRating == 3 {
+		fmt.Println("We are always improving")
+	} else if mynumRating < 3 {
+		fmt.Println("Need serious work on our side")
+	}
 }
